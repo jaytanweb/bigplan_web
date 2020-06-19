@@ -1,0 +1,14 @@
+@import '../../style/variable.scss';
+
+.tabs {
+  position: fixed;
+  bottom: $padding;
+  left: $padding;
+  right: $padding;
+
+  padding: $padding;
+
+  background: $subBg;
+
+  border-radius: $borderRadius;
+}

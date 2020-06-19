@@ -1,0 +1,7 @@
+@import '../../style/variable.scss';
+
+.card {
+  background: $subBg;
+  padding: $padding;
+  border-radius: $borderRadius;
+}

@@ -1,0 +1,21 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-eslint-rules",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "no-any": true,
+    "no-eval": true,
+    "promise-function-async": true,
+    "await-promise": true,
+    "no-async-without-await": true,
+    "no-implicit-dependencies": true,
+    "no-duplicate-imports": true,
+    "no-unused-expression": true,
+    "no-debugger": true,
+    "no-console": true,
+    "no-empty": true
+  }
+}

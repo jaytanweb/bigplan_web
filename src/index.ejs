@@ -1,0 +1,65 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <!-- 引入js -->
+    <% for (var i in htmlWebpackPlugin.options.js_cdn) { %>
+    <script
+      crossorigin
+      type="text/javascript"
+      src="<%= htmlWebpackPlugin.options.js_cdn[i] %>"
+    ></script>
+    <% } %>
+
+    <!-- 引入样式 -->
+    <% for (var i in htmlWebpackPlugin.options.css_cdn) { %>
+    <link
+      crossorigin
+      href="<%= htmlWebpackPlugin.options.css_cdn[i] %>"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <% } %>
+
+    <!-- 捕捉错误， 上传服务器 -->
+    <script type="text/javascript">
+      window.onerror = (msg, file, line, col, error) => {
+        console.log({
+          msg,
+          file,
+          line,
+          col,
+          error,
+        });
+      };
+      window.onunhandledrejection = (e) => {
+        e.preventDefault();
+      };
+    </script>
+
+    <!-- 修改 root font-size -->
+    <script type="text/javascript">
+      (function (doc, win) {
+        var root = doc.documentElement;
+
+        doc.addEventListener('DOMContentLoaded', resize, false);
+        win.addEventListener('resize', resize, false);
+
+        function resize() {
+          // 屏幕宽度为1366时 html font-size=20px;
+          root.style.fontSize = root.clientWidth / 68.3 + 'px';
+        }
+
+        resize();
+      })(document, window);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

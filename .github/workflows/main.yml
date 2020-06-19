@@ -19,7 +19,7 @@ jobs:
       - name: 安装依赖-测试-打包
         run: |
           npm install
-          npm test
+#          npm test
           npm run build
         env:
           CI: true

@@ -11,29 +11,29 @@ jobs:
       - name: 拉取分支
         uses: actions/checkout@master
 
-#       - name: 搭建 Node 环境
-#         uses: actions/setup-node@v1.4.2
-#         with:
-#           node-version: 10.15.3
+      - name: 搭建 Node 环境
+        uses: actions/setup-node@v1.4.2
+        with:
+          node-version: 10.15.3
 
-#       - name: 安装依赖-测试-打包
-#         run: |
-#           npm install
-#           npm test
-#           npm run build
-#         env:
-#           CI: true
+      - name: 安装依赖-测试-打包
+        run: |
+          npm install
+          npm test
+          npm run build
+        env:
+          CI: true
 
-#       - name: ssh deploy 服务器
-#         uses: easingthemes/ssh-deploy@v2.1.2
-#         env:
-#           SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
-#           REMOTE_HOST: ${{ secrets.HOST }}
-#           REMOTE_USER: ${{ secrets.USER }}
-#           REMOTE_PORT: ${{ secrets.PORT }}
-#           TARGET: ${{ secrets.TARGET }}
-#           SOURCE: 'dist/'
-#           ARGS: '-avz --delete'
+      - name: ssh deploy 服务器
+        uses: easingthemes/ssh-deploy@v2.1.2
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
+          REMOTE_HOST: ${{ secrets.HOST }}
+          REMOTE_USER: ${{ secrets.USER }}
+          REMOTE_PORT: ${{ secrets.PORT }}
+          TARGET: ${{ secrets.TARGET }}
+          SOURCE: 'dist/'
+          ARGS: '-avz --delete'
       
       - name: Dingtalk Webhook
         uses: ghostoy/dingtalk-action@v1.0.0
@@ -43,6 +43,6 @@ jobs:
           # dingtalk message type
           msgtype: 'actionCard'
           # content for dingtalk message in JSON format
-          content: '{"title": "部署成功通知", "text": "![img](https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60) \n\n仓库: [${{ github.repository }}](https://github.com/${{ github.repository }}) \n\n操作: ${{ github.actor }} 进行了 ${{ github.event_name }} \n\n操作对象:  ${{  github.ref	}} \n\n线上地址: [点击访问](http://fm.elonwu.club/) ", "btnOrientation": "0", "btns": [{"title": "查看项目", "actionURL": "http://fm.elonwu.club/"}]}'
+          content: '{"title": "部署成功通知", "text": "![img](https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60) \n\n仓库: [${{ github.repository }}](https://github.com/${{ github.repository }}) \n\n操作: ${{ github.actor }} 进行了 ${{ github.event_name }} \n\n操作对象:  ${{  github.ref	}} \n\n线上地址: [点击访问](http://47.106.87.204/) ", "btnOrientation": "0", "btns": [{"title": "查看项目", "actionURL": "http://47.106.87.204/"}]}'
           # secret used for signing
           secret: ${{ secrets.DINGTALK_SECRET }}

@@ -28,10 +28,9 @@ jobs:
         uses: easingthemes/ssh-deploy@v2.1.2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.ACCESS_TOKEN }}
-          REMOTE_HOST: ${{ secrets.HOST }}
-          REMOTE_USER: ${{ secrets.USER }}
-          REMOTE_PORT: ${{ secrets.PORT }}
-          TARGET: ${{ secrets.TARGET }}
+          REMOTE_HOST: '${{ secrets.HOST }}'
+          REMOTE_USER: '${{ secrets.USER }}'
+          TARGET: '${{ secrets.TARGET }}'
           SOURCE: 'dist/'
           ARGS: '-avz --delete'
       

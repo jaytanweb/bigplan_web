@@ -1,5 +1,4 @@
 name: 自动发布到服务器
-
 on:
   push:
     branches: [master]

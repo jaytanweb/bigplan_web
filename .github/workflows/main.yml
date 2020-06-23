@@ -1,6 +1,5 @@
 name: 自动发布到服务器
 
-
 on:
   push:
     branches: [master]
@@ -42,6 +41,6 @@ jobs:
           # dingtalk message type
           msgtype: 'actionCard'
           # content for dingtalk message in JSON format
-          content: '{"title": "部署成功通知", "text": "![img](https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60) \n\n仓库: [${{ github.repository }}](https://github.com/${{ github.repository }}) \n\n操作: ${{ github.actor }} 进行了 ${{ github.event_name }} \n\n操作对象:  ${{  github.ref	}} \n\n线上地址: [点击访问](http://47.106.87.204/) ", "btnOrientation": "0", "btns": [{"title": "查看项目", "actionURL": "http://47.106.87.204/"}]}'
+          content: '{"title": "部署成功通知", "text": "![img](https://avatars1.githubusercontent.com/u/19390881?s=460&u=e7b424845efe334d6ce584f9af6221aa6eb8c9a0&v=4) \n\n仓库: [${{ github.repository }}](https://github.com/${{ github.repository }}) \n\n操作: ${{ github.actor }} 进行了 ${{ github.event_name }} \n\n操作对象:  ${{  github.ref	}} \n\n线上地址: [点击访问](http://jaytan.club/) ", "btnOrientation": "0", "btns": [{"title": "查看项目", "actionURL": "http://jaytan.club/"}]}'
           # secret used for signing
           secret: ${{ secrets.DINGTALK_SECRET }}
